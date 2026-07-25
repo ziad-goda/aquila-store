@@ -1,1 +1,0 @@
-const o="/assets/hoodie-1-DWKrpRvR.jpg",t="/assets/hoodie-2-CWWGzvF6.jpg",e="/assets/hoodie-3-D3fhENKs.jpg",a="/assets/pants-1-C-VUHkNf.jpg",p="/assets/pants-2-CMJ_uQL8.jpg",n={"/src/assets/hoodie-1.jpg":o,"/src/assets/hoodie-2.jpg":t,"/src/assets/hoodie-3.jpg":e,"/src/assets/pants-1.jpg":a,"/src/assets/pants-2.jpg":p};function g(s){return s?n[s]??s:o}export{g as r};
