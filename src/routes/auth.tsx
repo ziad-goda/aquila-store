@@ -46,7 +46,7 @@ function AuthPage() {
         toast.success("مرحباً بعودتك ✓");
         navigate({ to: (redirect as never) ?? "/account" });
       }
-    }} catch (err: unknown) {
+    } catch (err: unknown) {
   console.error("Supabase Error:", err);
 
   if (err instanceof Error) {
