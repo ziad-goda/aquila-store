@@ -46,10 +46,15 @@ function AuthPage() {
         toast.success("مرحباً بعودتك ✓");
         navigate({ to: (redirect as never) ?? "/account" });
       }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "حدث خطأ";
-      toast.error(msg.includes("Invalid") ? "بيانات غير صحيحة" : msg.includes("already") ? "البريد مسجّل بالفعل" : msg);
-    } finally {
+    }} catch (err: unknown) {
+  console.error("Supabase Error:", err);
+
+  if (err instanceof Error) {
+    console.error("Message:", err.message);
+  }
+
+  toast.error(err instanceof Error ? err.message : "حدث خطأ");
+} finally {
       setLoading(false);
     }
   };
