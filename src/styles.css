@@ -1,0 +1,123 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Cairo", "Inter", sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Aquila Noir — black base, gold accent */
+  --background: oklch(0.08 0.005 270);
+  --foreground: oklch(0.97 0.005 90);
+  --card: oklch(0.11 0.005 270);
+  --card-foreground: oklch(0.97 0.005 90);
+  --popover: oklch(0.11 0.005 270);
+  --popover-foreground: oklch(0.97 0.005 90);
+  --primary: oklch(0.78 0.13 85);
+  --primary-foreground: oklch(0.08 0.005 270);
+  --secondary: oklch(0.16 0.005 270);
+  --secondary-foreground: oklch(0.97 0.005 90);
+  --muted: oklch(0.14 0.005 270);
+  --muted-foreground: oklch(0.65 0.01 90);
+  --accent: oklch(0.78 0.13 85);
+  --accent-foreground: oklch(0.08 0.005 270);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(0.22 0.008 90 / 0.4);
+  --input: oklch(0.18 0.005 270);
+  --ring: oklch(0.78 0.13 85);
+  --gold: oklch(0.78 0.13 85);
+  --gold-foreground: oklch(0.08 0.005 270);
+
+  --gradient-gold: linear-gradient(135deg, oklch(0.72 0.13 80), oklch(0.85 0.12 90));
+  --gradient-dark: linear-gradient(180deg, oklch(0.08 0.005 270) 0%, oklch(0.05 0.005 270) 100%);
+  --shadow-gold: 0 10px 40px -10px oklch(0.78 0.13 85 / 0.3);
+  --shadow-elegant: 0 20px 60px -20px oklch(0 0 0 / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    direction: rtl;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility text-gold {
+  color: var(--gold);
+}
+@utility bg-gold {
+  background-color: var(--gold);
+  color: var(--gold-foreground);
+}
+@utility border-gold {
+  border-color: var(--gold);
+}
+@utility gradient-gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+@utility container-aquila {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 1400px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
